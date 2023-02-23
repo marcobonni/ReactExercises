@@ -1,6 +1,5 @@
-import React from "react"
-export class Hello extends React.Component {
-    render() {
-        return <h1>Hello, World</h1>
-    }
-}
+import ReactDOM  from "react";
+import App from "./App"
+const root = document.getElementById("root")
+ReactDOM.render(<App/>, root)
+
