@@ -1,5 +1,6 @@
-function HelloName(name) {
-    return <h1>Hello, {name}</h1>
+function sum(a, b) {
+    let sum = a + b
+    return <h2>{sum}</h2>
 }
 
-HelloName("Marco")
+sum(2, 3)
