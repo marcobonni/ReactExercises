@@ -1,13 +1,12 @@
 import React from "react"
+import  CounterDisplay  from "./CounterDisplay"
+import Counter from "./Counter"
 
-import  Counter  from "./Counter"
-
-
-  export class App extends React.Component {
+class App extends React.Component {
     render() {
         return (
         <div>
-            <Counter StartValue ={25} IncrementValue = {2} TimeInterval = {500} />
+            <Counter/>
         </div>
         )
     }
