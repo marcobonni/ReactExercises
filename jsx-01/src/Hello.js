@@ -6,8 +6,8 @@ export class Hello extends React.Component {
         return (
             <div>
                 <h1>Hello</h1>
-                <Message/>
-                <Age age={18} />
+                <Message />
+                <Age />
             </div>
         )
     }
