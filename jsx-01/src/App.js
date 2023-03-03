@@ -7,7 +7,7 @@ import  Counter  from "./Counter"
     render() {
         return (
         <div>
-            <Counter/>
+            <Counter StartValue ={25} IncrementValue = {2} TimeInterval = {500} />
         </div>
         )
     }
