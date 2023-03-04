@@ -3,7 +3,7 @@ import CounterDisplay from "./CounterDisplay";
 
 
 
-class Counter extends React.Component {
+class ClickCounter extends React.Component {
     state = {
         count: 0
     }
@@ -23,18 +23,14 @@ class Counter extends React.Component {
         })
     }
 
-    // render() {
-    //     return (
-    //         <div>
-    //             <CounterDisplay count={this.state.count} />
-    //             <button onClick={this.handleCounterIncrement}>+</button>
-    //             <button onClick={this.handleCounterDecrement}>-</button>
-    //         </div>
-    //     )
-    // }
+    render() {
+        return (
+            <div>
+                <CounterDisplay count={this.state.count} />
+                <button onClick={this.handleCounterIncrement}>+</button>
+                <button onClick={this.handleCounterDecrement}>-</button>
+            </div>
+        )
+    }
 }
-
-
-
-
-export default Counter
+export default ClickCounter
