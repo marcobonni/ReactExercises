@@ -7,9 +7,7 @@ class Counter extends React.Component {
     state = {
          count : this.props.StartValue,
     }
-    constructor(props) {
-        super(props)
-
+    componentDidMount(){
         setInterval(() => {
             this.setState((state) => {
                 return {
