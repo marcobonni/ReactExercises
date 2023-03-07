@@ -1,11 +1,10 @@
 import React from "react"
-// import Hello from "./Hello"
-import Welcome from "../../my_app/src/Welcome"
+import Welcome from "./Welcome"
 export class App extends React.Component {
     render() {
         return (
         <div>
-            <Welcome name="Marco"/>
+            <Welcome name="pippo" age={17}/>
         </div>
         )
     }
