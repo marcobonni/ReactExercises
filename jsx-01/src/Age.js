@@ -3,11 +3,14 @@ import React from "react";
 
 export class Age {
     render() {
-        if (this.props.age > 17) {
-            return <p>Your age is: {this.props.age} </p>
-        }
-        else {
-            return <p>You are very young!</p>
-        }
+        return (
+            <div>
+                {
+                    this.props.age > 18
+                        ? <p>Your age is: {this.props.age} </p>
+                        : <p>You are very young!</p>
+                }
+            </div>
+        )
     }
 }
