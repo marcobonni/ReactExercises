@@ -1,16 +1,16 @@
 import React from "react";
 import { Age } from "./Age";
 
-export class Welcome extends React.Component {
+export default class Welcome extends React.Component {
     render() {
-        if (this.props.age > 17 && !this.props.age === undefined) {
             return (
                 <div>
-                    {!!this.props.name && <p>Welcome {this.props.name}!</p>}
-                    {!this.props.name && <p>Welcome User!</p>}
-                    <Age />
+                    {
+                        !this.props.age === undefined
+                        ? <Age age={this.props.age}/>
+                        : <p>Welcome, User</p>
+                    }
                 </div>
             )
-        }
     }
 }
