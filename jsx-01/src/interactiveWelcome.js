@@ -2,24 +2,25 @@ import React from "react"
 import Welcome from "./Welcome"
 
 class InteractiveWelcome extends React.Component {
-    state = { 
-        inputName : "",
+    constructor(props) {
+        super(props);
+        this.state = {
+            nome: ""
+        }
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
-    HandleInputName = () => {
-        this.setState(state =>
-            {
-                return {
-                    inputName: state.inputName,
-                }
-            })
+
+    handleInputChange(event) {
+        this.setState({nome: event.target.value})
     }
 
 
     render() {
+        const { nome } = this.state;
         return (
             <div>
-                <input />
-                <Welcome/>
+                <input onChange={this.handleInputChange} />
+                <Welcome nome={nome}/>
             </div>
         )
     }
