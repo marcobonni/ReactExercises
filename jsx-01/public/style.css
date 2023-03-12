@@ -1,3 +1,9 @@
+* {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
 body {
     background-color: black;
 }
@@ -37,4 +43,18 @@ body {
 #button1:hover {
     transition: 1s;
     transform: translate(40px) rotate(1turn) scale(2);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form > button {
+    height: 20px;
+    width: 40px;
+    border-radius: 10px;
+    margin-top: 10px;
 }
