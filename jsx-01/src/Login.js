@@ -13,7 +13,7 @@ class Login extends React.Component {
             username: value,
             disabled: false,
         })
-    } 
+    }
     HandlePasswordChange = (event) => {
         const value = event.target.value
         this.setState({
@@ -29,7 +29,15 @@ class Login extends React.Component {
     }
     HandleOnLogin = (username, password) => {
         const { onLogin } = this.props;
-        onLogin({ username, password});
+        onLogin({ username, password });
+    }
+    HandleReset = () => {
+        this.setState({
+            username: "",
+            password: "",
+            checked: "",
+            disabled: true
+        })
     }
     render() {
         return (
@@ -55,6 +63,7 @@ class Login extends React.Component {
                     value={this.state.checked}
                 />
                 <button disabled={this.state.disabled} onClick={this.HandleOnLogin}>Login</button>
+                <button onClick={this.HandleReset}>Reset</button>
             </div>
         )
     }
