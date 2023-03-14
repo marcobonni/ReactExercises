@@ -4,45 +4,51 @@ class Login extends React.Component {
     state = {
         username: "",
         password: "",
-        checked: "",
+        remember: false,
     }
-    HandleUserNameChange = (event) => {
-        const value = event.target.value
+    HandleInput = (event) => {
+        const {name, type, value, checked} = event.target
+        const v = type === "checkbox" ? checked : value 
         this.setState({
-            username: value,
-        })
-    } 
-    HandlePasswordChange = (event) => {
-        const value = event.target.value
-        this.setState({
-            password: value,
+            [name] : v  
         })
     }
-    HandleCheckboxChange = (event) => {
-        const value = event.target.value
-        this.setState({
-            checked: value,
-        })
-    }
+    // HandleUserNameChange = (event) => {
+    //     const value = event.target.value
+    //     this.setState({
+    //         username: value,
+    //     })
+    // } 
+    // HandlePasswordChange = (event) => {
+    //     const value = event.target.value
+    //     this.setState({
+    //         password: value,
+    //     })
+    // }
+    // HandleCheckboxChange = (event) => {
+    //     const value = event.target.value
+    //     this.setState({
+    //         checked: value,
+    //     })
+    // }
     render() {
         return (
             <div>
                 <input
                     type="text"
                     name="username"
-                    onChange={this.HandleUserNameChange}
+                    onChange={this.HandleInput}
                     value={this.state.username}
                 />
                 <input type="password"
                     name="password"
-                    onChange={this.HandlePasswordChange}
+                    onChange={this.HandleInput}
                     value={this.state.password}
                 />
                 <input
                     type="checkbox"
                     name="remember"
-                    onChange={this.HandleCheckboxChange}
-                    value={this.state.checked}
+                    onChange={this.HandleInput}
                 />
             </div>
         )
