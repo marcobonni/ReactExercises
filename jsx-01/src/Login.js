@@ -1,12 +1,13 @@
-import React from "react";
+import React, { createRef } from "react";
 
 class Login extends React.Component {
-    state = {
-        username: "",
-        password: "",
-        checked: "",
-        disabled: true,
-    }
+    _formRef = createRef()
+    // state = {
+    //     username: "",
+    //     password: "",
+    //     checked: "",
+    //     disabled: true,
+    // }
     // HandleUserNameChange = (event) => {
     //     const value = event.target.value
     //     this.setState({
@@ -39,8 +40,20 @@ class Login extends React.Component {
             disabled: true
         })
     }
+    handleFormSubmit = (event) => {
+        event.preventDefault()
+        const username = event.target.elements.username.value
+        const password = event.target.elements.password.value
+        const remember = event.target.elements.remember.checked
+
+        console.log(
+            username, 
+            password,
+            remember
+        )
+    }
     HandleInput = (event) => {
-        const value = event.target.value
+        const value = event.target.elements.username.value
         const name = event.target.name
         const type = event.target.type
         const checked = event.target.checked
@@ -51,30 +64,39 @@ class Login extends React.Component {
     }
     render() {
         return (
-            <div className="form">
+            <form ref={this._formRef} className="form" onSubmit={this.handleFormSubmit}>
                 <h2>Username</h2>
                 <input
+                    defaultValue= ""
+                    ref={this.myref}
                     type="text"
                     name="username"
                     onChange={this.HandleInput}
                     value={this.state.username}
                 />
                 <h2>password</h2>
-                <input type="password"
+                <input
+                    defaultValue=""
+                    ref={this.myref}
+                    type="password"
                     name="password"
                     onChange={this.HandleInput}
                     value={this.state.password}
                 />
                 <h2>remember</h2>
                 <input
+                    defaultChecked=""
+                    ref={this.myref}
                     type="checkbox"
                     name="remember"
                     onChange={this.HandleInput}
                     checked={this.state.checked}
                 />
-                <button type="disabled" disabled={this.state.disabled} onClick={this.HandleOnLogin}>Login</button>
-                <button onClick={this.HandleReset}>Reset</button>
-            </div>
+                <button type="disabled">Login</button>
+                <button>Reset</button>
+                <button onSubmit={this.handleFormSubmit}></button>
+                
+            </form>
         )
     }
 }

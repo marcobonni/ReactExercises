@@ -2,7 +2,7 @@ import React from "react"
 import ClickCounter from "./ClickCounter"
 import ClickTracker from "./ClickTracker"
 import InteractiveWelcome from "./interactiveWelcome"
-import Login from "./Login"
+import Login2 from "./Login2"
 class App extends React.Component {
     render() {
         return (
@@ -10,7 +10,7 @@ class App extends React.Component {
             <ClickCounter/>
             <ClickTracker/>
             <InteractiveWelcome/>
-            <Login/>
+            <Login2/>
         </div>
         )
     }
