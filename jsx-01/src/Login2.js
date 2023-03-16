@@ -17,7 +17,7 @@ class Login2 extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit} className="username">
-                <input type="text" name="username" defaultValue="" ref={(input) => (this.usernameInput = input)}/>
+                <input type="text" name="username" autoFocus defaultValue="" ref={(input) => (this.usernameInput = input)}/>
                 <input type="password" name="password" defaultValue="" ref={(input) => (this.passwordInput = input)}/>
                 <input type="checkbox" name="remember" defaultChecked={false} ref={(input) => (this.rememberInput = input)}/>
                 <button type="submit">submit</button>
