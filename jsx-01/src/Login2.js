@@ -13,7 +13,9 @@ class Login2 extends Component {
             remember
         })
         }
-
+        componentDidMount() {
+            this.usernameInput.focus();
+        }
     render() {
         return (
             <form onSubmit={this.handleSubmit} className="username">
