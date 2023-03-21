@@ -85,7 +85,7 @@ class Login extends React.Component {
                 />
                 <h2>remember</h2>
                 <input
-                    defaultChecked=""
+                    defaultChecked= "false"
                     ref={this.myref}
                     type="checkbox"
                     name="remember"
