@@ -4,29 +4,20 @@ class Login extends React.Component {
     state = {
         username: "",
         password: "",
-        checked: "",
+        checked: false,
         disabled: true,
-    }
-    HandleUserNameChange = (event) => {
+    }   
+    handleInputChange = (event) => {
         const value = event.target.value
+        const name = event.target.name
+        const type = event.target.type
+        const checked = event.target.checked
         this.setState({
-            username: value,
+            [name]: type === "checkbox" ? checked : value,
             disabled: false,
         })
     }
-    HandlePasswordChange = (event) => {
-        const value = event.target.value
-        this.setState({
-            password: value,
-            disabled: false,
-        })
-    }
-    HandleCheckboxChange = (event) => {
-        const value = event.target.value
-        this.setState({
-            checked: value,
-        })
-    }
+
     HandleOnLogin = (username, password) => {
         const { onLogin } = this.props;
         onLogin({ username, password });
@@ -35,7 +26,7 @@ class Login extends React.Component {
         this.setState({
             username: "",
             password: "",
-            checked: "",
+            checked: false,
             disabled: true
         })
     }
@@ -46,20 +37,20 @@ class Login extends React.Component {
                 <input
                     type="text"
                     name="username"
-                    onChange={this.HandleUserNameChange}
+                    onChange={this.handleInputChange}
                     value={this.state.username}
                 />
                 <h2>password</h2>
                 <input type="password"
                     name="password"
-                    onChange={this.HandlePasswordChange}
+                    onChange={this.handleInputChange}
                     value={this.state.password}
                 />
                 <h2>remember</h2>
                 <input
                     type="checkbox"
                     name="remember"
-                    onChange={this.HandleCheckboxChange}
+                    onChange={this.handleInputChange}
                     value={this.state.checked}
                 />
                 <button disabled={this.state.disabled} onClick={this.HandleOnLogin}>Login</button>
