@@ -22,7 +22,7 @@ class TodoList extends React.Component {
       }));
       this.input.current.value = '';
     }
-  };
+  }
   render() {
     return (
       <div>
@@ -34,6 +34,7 @@ class TodoList extends React.Component {
           {this.state.items.map((item, index) => (
             <li key={index}>
               {item}
+              <button onClick={this.HandleDeleteTodo}>X</button>
             </li>
           ))}
         </ul>
