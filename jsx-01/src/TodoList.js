@@ -8,7 +8,11 @@ class TodoList extends Component {
       items: []
     };
   }
-
+  handleReset = () => {
+    this.setState({
+      items: []
+    })
+  }
   handleSubmit = (event) => {
     event.preventDefault();
     const newItem = this.input.current.value;
@@ -33,6 +37,7 @@ class TodoList extends Component {
             </li>
           ))}
         </ul>
+        <button type="reset" onClick={this.handleReset}>Reset</button>
       </div>
     );
   }
