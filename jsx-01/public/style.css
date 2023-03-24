@@ -67,3 +67,9 @@ body {
     align-items: center;
     gap: 10px;
 }
+
+.container {
+    background-color: white;
+    border: 1px solid red;
+    height: 200px;
+}
