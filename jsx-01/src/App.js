@@ -1,10 +1,12 @@
 import React from "react";
-import { Sum } from "./Sum";
+import { Counter } from "./Counter"
 
 class App extends React.Component {
     render() {
         return (
-                <Sum numbers={[0,1,2]}/>
+            <div>
+                <Counter />
+            </div>
         )
     }
 }
