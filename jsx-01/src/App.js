@@ -1,11 +1,10 @@
 import React from "react";
-import { Counter } from "./Counter"
-
+import {LoginFunc} from "./LoginFunc"
 class App extends React.Component {
     render() {
         return (
             <div>
-                <Counter />
+                <LoginFunc/>
             </div>
         )
     }
