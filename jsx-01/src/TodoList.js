@@ -1,56 +1,35 @@
-import React  from 'react';
+import React, { createRef } from "react"
 
 class TodoList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.input = React.createRef();
-    this.state = {
-      items: []
-    };
+  _input = createRef()
+  addList(value) {
+    this.props.setList([...this.props.list, value]);
+    this._input.current.value = "";
   }
-  handleReset = () => {
-    this.setState({
-      items: []
-    })
+  removeLi(index) {
+    this.props.list.splice(index, 1)
+    this.props.setList([...this.props.list])
   }
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const newItem = this.input.current.value;
-    if (newItem !== '') {
-      this.setState((prevState) => ({
-        items: [...prevState.items, newItem]
-      }));
-      this.input.current.value = '';
-    }
+  resetLi() {
+    this.props.setList([])
   }
-  handleRemove = (index) => {
-    this.setState((state) => {
-        state.items.splice(index, 1)
-        console.log(state)
-        return {
-            items: state.items
-        }
-    })
-}
   render() {
+    const list = this.props.list?.map((el, index) => {
+      return (
+        <li key={index}>{el}<button onClick={() => this.removeLi(index)}>X</button></li>
+      )
+    })
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" ref={this.input} />
-          <button type="submit">Add</button>
-        </form>
+      <div className="todolist">
+        <input type="text" ref={this._input} name="input"></input>
+        <button onClick={() => this.addList(this._input.current.value)}>submit</button>
+        <button onClick={() => this.resetLi()}>Reset</button>
         <ul>
-          {this.state.items.map((item, index) => (
-            <li key={index}>
-              {item}
-              <button onClick={this.handleRemove}>X</button>
-            </li>
-          ))}
+          {this.props.render(this.state._input)}
         </ul>
-        <button type="reset" onClick={this.handleReset}>Reset</button>
       </div>
-    );
+    )
   }
 }
 
-export default TodoList;
+export default TodoList
