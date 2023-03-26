@@ -1,27 +1,29 @@
-import React from "react"
-import TodoList2 from "./TodoList2"
-function App() {
+import React from "react";
+import { LanguageContext } from "./LanguageContext";
+import Welcome from "./Welcome";
+class App extends React.Component {
+    state = {
+        language: "en"
+    }
 
-    return (
-        <div>
-        <TodoList2
-          render={({ items, deleteItem, inputValue, setInputValue, addItem }) => (
+    handleLanguageChange = (event) => {
+        this.setState({
+            language: event.target.value
+        })
+    }
+    render() {
+        return (
             <div>
-            <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-              <button onClick={addItem}>Add Item</button>
-              <ul>
-                {items.map((item, index) => (
-                  <li key={index}>
-                    {item} <button onClick={() => deleteItem(index)}>Delete</button>
-                  </li>
-                ))}
-              </ul>
-              
+                <select value={this.state.language} onChange={this.handleLanguageChange}>
+                    <option value="en">English</option>
+                    <option value="it">Italiano</option>
+                </select>
+                <LanguageContext.Provider value={this.state.language}>
+                <Welcome/>
+                </LanguageContext.Provider>
             </div>
-          )}
-        />
-      </div>
-    )
+        )
+    }
 }
 
 export default App
