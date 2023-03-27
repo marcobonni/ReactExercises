@@ -5,12 +5,18 @@ export function Counter({ initialValue = 0}) {
     function HandleIncrement(data) {
         setData(data => data + 1)
     }
-    function OnCounterChange(data) {
-        console.log(`counter changed to ${data}`)
-    }
+    const [count, setCount] = useState(0);
+
     useEffect(() => {
-        OnCounterChange(data)
-    }, [data])
+      const intervalId = setInterval(() => {
+        setCount((count) => count + 1);
+        console.log(count)
+      }, 1000);
+  
+      return () => {
+        clearInterval(intervalId);
+      };
+    }, [count]);
     return (
         <div>
             <h2>Count : {data}</h2>

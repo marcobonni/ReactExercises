@@ -1,15 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import {LoginFunc} from "./LoginFunc"
 import {Counter} from "./Counter"
-class App extends React.Component {
-    render() {
+function App (){
+    const [showCounter, setShowCounter] = useState(true)
+
+    function HandleToogleCounter() {
+        setShowCounter(s => !s)
+    }
         return (
             <div>
                 <LoginFunc/>
-                <Counter/>
+                <button onClick={HandleToogleCounter}>Toggle Counter</button>
+                {showCounter &&<Counter/>}
             </div>
         )
     }
-}
 
 export default App
