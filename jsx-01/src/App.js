@@ -5,6 +5,7 @@ import { DisplayLanguage } from "./DisplayLanguage";
 import {Welcome} from "./Welcome"
 import { Routes, Route } from "react-router-dom"; 
 import { NewCounter } from "./NewCounter";
+import { GithubParameter } from "./GitHub3";
 function App (){
     // const [showCounter, setShowCounter] = useState(true)
 
@@ -16,6 +17,7 @@ function App (){
                 <Routes>
                     <Route path="/:name" element={<Welcome/>}/>
                     <Route path="/counter" element={<NewCounter/>}/>
+                    <Route path="users/:username" element={<GithubParameter/>}/>
                 </Routes>
             </div>
         )
