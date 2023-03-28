@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-
-export function GitHub2({ name = "marcobonni" }) {
+import React from "react";
+function useFetchGitHub() {
     const [data, setData] = useState([])
     const [variable, setVariable] = useState("")
-    const [list, setList] = useState([])
-
     async function gettingdata(input) {
         const response = await fetch(`https://api.github.com/users/${input}`)
         const json = await response.json()
@@ -19,11 +17,18 @@ export function GitHub2({ name = "marcobonni" }) {
         setVariable(event.target.value)
     }
 
+   
+    return {
+        data, variable, HandleChange
+    }
+}
+export function GitHub2({ name = "marcobonni" }) {
+    const {data, variable, HandleChange} = useFetchGitHub()
+    const [list, setList] = useState([])
     const PrintInput = () => {
         setList([...list, data.name])
         console.log(list)
     }
-
     return (
         <div>
             <input placeholder="username" onChange={HandleChange} value={variable} />
