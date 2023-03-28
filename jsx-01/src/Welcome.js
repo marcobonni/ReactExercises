@@ -1,29 +1,11 @@
 import React from "react";
-import { LanguageContext } from "./LanguageContext";
-const Strings = {
-    en: {
-        CURRENT_WELCOME: "Welcome"
-    },
-    it: {
-        CURRENT_WELCOME: "Benvenuto"
-    }
-}
-export class Welcome extends React.Component {
-    render() {
-            return (
-                <div>
-                    <LanguageContext.Consumer>
-                    {(language) => {
-                        return(
-                            <div>{Strings[language].CURRENT_WELCOME}
-                            </div>
-                        )
-                    }}
-                    </LanguageContext.Consumer>
-                </div>
-            )
-}
-}
+import { useParams } from "react-router-dom";
 
-
-export default Welcome
+export function Welcome() {
+    const {name = "World"} = useParams()
+    return (
+        <div>
+            <p>Hello, {name}</p>
+        </div>
+    )
+}
