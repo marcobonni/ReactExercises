@@ -3,10 +3,16 @@ import React from "react";
 function useFetchGitHub() {
     const [data, setData] = useState([])
     const [variable, setVariable] = useState("")
+    const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
     async function gettingdata(input) {
         const response = await fetch(`https://api.github.com/users/${input}`)
+        if (response.status !== 200) {
+            setError(true)
+        }
         const json = await response.json()
         setData(json)
+        setLoading(true)
     }
     
     useEffect(() => {
@@ -19,11 +25,11 @@ function useFetchGitHub() {
 
    
     return {
-        data, variable, HandleChange
+        data, variable, HandleChange, error, loading
     }
 }
 export function GitHub2({ name = "marcobonni" }) {
-    const {data, variable, HandleChange} = useFetchGitHub()
+    const {data, variable, HandleChange, error, loading} = useFetchGitHub()
     const [list, setList] = useState([])
     const PrintInput = () => {
         setList([...list, data.name])
@@ -41,7 +47,9 @@ export function GitHub2({ name = "marcobonni" }) {
             </ul>
             <ul>
                 <h1>Lista</h1>
-                {list.map((el, id) => {
+                {loading === false && <li>loading</li>}
+                {error === true && <li>Error</li> }
+                {error && loading && list.map((el, id) => {
                     return (
                         <li key={id}>{id + 1} {el} </li>
                     )
