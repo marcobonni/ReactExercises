@@ -1,15 +1,14 @@
-import React, {useState} from "react";
-
-import { GitHub2 } from "./GitHubUserList";
+import React from "react";
+import { LoginHook } from "./UseInput";
 function App (){
-    const [showCounter, setShowCounter] = useState(true)
+    // const [showCounter, setShowCounter] = useState(true)
 
-    function HandleToogleCounter() {
-        setShowCounter(s => !s)
-    }
+    // function HandleToogleCounter() {
+    //     setShowCounter(s => !s)
+    // }
         return (
             <div>
-                <GitHub2/>
+                <LoginHook/>
             </div>
         )
     }
