@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useParams } from "react-router-dom"
 
-export function GithubParameter({username = "marcobonni"}) {
+export function GithubParameter() {
+    const { username } = useParams() 
     const [data, setData] = useState([])
     async function getData(username){
     const response =  fetch(`https://api.github.com/users/${username}`)
