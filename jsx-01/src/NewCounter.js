@@ -28,7 +28,7 @@ function useCounter(initialValue = 0) {
             onReset: ResetCounter
     }
 }
-export function Counter({ initialValue = 0}) {
+export function NewCounter({ initialValue = 0}) {
     const {counter, valuechange,  onIncrement, onDecrement, onAddValue, onRemoveValue, onReset} = useCounter(initialValue)
     return (
         <div>
