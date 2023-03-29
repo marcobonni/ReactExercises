@@ -58,6 +58,7 @@ function Users() {
         ))}
       </ul>
       <Switch>
+            <Route index element={<p>Add a user and select it</p>}/>
         <Route  path={path}>
           <GithubUserList users={users} />
         </Route>
