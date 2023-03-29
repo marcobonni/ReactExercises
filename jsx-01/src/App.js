@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link, useParams, useRouteMatch 
 import GithubUserList from "./GithubUserList";
 import ShowGithubUser from "./ShowGithubUser";
 import NotFound from "./NotFound";
+import { GitHubUsers } from "./GitHubUsers";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="users">Users</Link>
             </li>
           </ul>
         </nav>
@@ -65,6 +66,7 @@ function Users() {
         <Route path={`${path}/:username`}>
           <ShowGithubUser />
         </Route>
+        <Route path="users" element={<GitHubUsers/>}
         <Route>
           <NotFound />
         </Route>
