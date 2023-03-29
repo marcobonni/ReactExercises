@@ -1,6 +1,7 @@
 import React from "react";
 import { LoginHook } from "./UseInput";
 import {GitHub2} from "./GitHubUserList"
+import CarDetails from "./CarDetails";
 function App (){
     // const [showCounter, setShowCounter] = useState(true)
 
@@ -9,7 +10,7 @@ function App (){
     // }
         return (
             <div>
-                <GitHub2/>
+                <CarDetails/>
             </div>
         )
     }
